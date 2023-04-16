@@ -218,7 +218,4 @@ $RECYCLE.BIN/
 # Files used to store contract addresses
 notes.txt
 
-# Files not needed
-_appRain.jsx
-
 # End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,node
