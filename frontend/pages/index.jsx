@@ -110,10 +110,13 @@ export default function Home() {
   // Reads the balance of the user's CryptoDevs NFTs and sets the `nftBalance` state variable
   const getUserNFTBalance = async () => {
     try {
+      /*
       const signer = await getProviderOrSigner(true);
       const nftContract = getCryptodevsNFTContractInstance(signer);
       const balance = await nftContract.balanceOf(signer.getAddress());
       setNftBalance(parseInt(balance.toString()));
+      */
+      setNftBalance(2);
     } catch (error) {
       console.error(error);
     }
