@@ -1,5 +1,5 @@
 const { hre, ethers } = require("hardhat");
-const { CRPYTODEVS_NFT_CONTRACT_ADDRESS } = require("../constants");
+const { CRYPTODEVS_NFT_CONTRACT_ADDRESS } = require("../constants");
 
 //* How to change this file
 /*
@@ -33,16 +33,16 @@ async function main() {
   const FakeNFTMarketplace = await ethers.getContractFactory(
     "FakeNFTMarketplace"
   );
-  const fakeNftMarketplace = await FakeNFTMarketplace.deploy()
+  const fakeNftMarketplace = await FakeNFTMarketplace.deploy();
   await fakeNftMarketplace.deployed();
 
-  console.log("FakeNFTMarketplace contract deployed to: ", fakeNftMarketplace.address);
+  console.log("FakeNFTMarketplace deployed to: ", fakeNftMarketplace.address);
 
   // Now deploy the CryptoDevsDAO contract
-  const CryptoDevsDAO = await ethers.getContractFactory("CryptoDevsDao");
+  const CryptoDevsDAO = await ethers.getContractFactory("CryptoDevsDAO");
   const cryptoDevsDAO = await CryptoDevsDAO.deploy(
     fakeNftMarketplace.address,
-    CRPYTODEVS_NFT_CONTRACT_ADDRESS,
+    CRYPTODEVS_NFT_CONTRACT_ADDRESS,
     {
       // This assumes your metamask account has at least 1 ETH in its account
       // Change this value as you want
@@ -51,9 +51,7 @@ async function main() {
   );
   await cryptoDevsDAO.deployed();
 
-  console.log("cryptoDevsDAO contract deployed to: ", cryptoDevsDAO.address);
-
-
+  console.log("CryptoDevsDAO deployed to: ", cryptoDevsDAO.address);
 }
 
 // Async Sleep function
