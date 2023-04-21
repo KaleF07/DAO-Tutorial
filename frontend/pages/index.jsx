@@ -1,4 +1,4 @@
-import { Contract, providers } from "ethers";
+import { ContractFactory, providers } from "ethers";
 import { formatEther } from "ethers/lib/utils";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
@@ -231,7 +231,7 @@ export default function Home() {
   // Helper function to return a DAO Contract instance
   // given a Provider/Signer
   const getDaoContractInstance = (providerOrSigner) => {
-    return new Contract(
+    return new ContractFactory(
       CRYPTODEVS_DAO_CONTRACT_ADDRESS,
       CRYPTODEVS_DAO_ABI,
       providerOrSigner
@@ -241,7 +241,7 @@ export default function Home() {
   // Helper function to return a CryptoDevs NFT Contract instance
   // given a Provider/Signer
   const getCryptodevsNFTContractInstance = (providerOrSigner) => {
-    return new Contract(
+    return new ContractFactory(
       CRYPTODEVS_NFT_CONTRACT_ADDRESS,
       CRYPTODEVS_NFT_ABI,
       providerOrSigner
